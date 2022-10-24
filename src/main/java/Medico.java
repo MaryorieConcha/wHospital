@@ -2,6 +2,11 @@ public class Medico {
 	private String nombre;
 	private int edad;
 
+	public Medico(String nombre, int edad) {
+		this.nombre = nombre;
+		this.edad = edad;
+	}
+
 	public String getNombre() {
 		return this.nombre;
 	}
