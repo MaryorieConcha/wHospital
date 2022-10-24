@@ -8,6 +8,7 @@ public class Hospital {
 
     public Hospital() {
         this.pacientes = new ArrayList<>();
+        this.medicos = new ArrayList<>();
     }
 
     public boolean registrarPaciente(String nombre, int edad){
