@@ -1,33 +1,22 @@
-public class Medico {
-	private String nombre;
-	private int edad;
+public class Medico extends Persona {
+	private Especialidad especialidad;
 
-	public Medico(String nombre, int edad) {
-		this.nombre = nombre;
-		this.edad = edad;
+	public Medico(String nombre, int edad, Especialidad especialidad) {
+		super(nombre,edad);
+		this.especialidad = especialidad;
 	}
 
-	public String getNombre() {
-		return this.nombre;
+	public Especialidad getEspecialidad() {
+		return especialidad;
 	}
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-
-	public int getEdad() {
-		return this.edad;
-	}
-
-	public void setEdad(int edad) {
-		this.edad = edad;
+	public void setEspecialidad(Especialidad especialidad) {
+		this.especialidad = especialidad;
 	}
 
 	@Override
 	public String toString() {
-		return "Medico{" +
-				"nombre='" + nombre + '\'' +
-				", edad=" + edad +
-				'}';
+		return "Medico{" + "nombre='" + super.getNombre() + '\'' + ", edad=" + super.getEdad() +
+		", especialidad=" + especialidad + '}';
 	}
 }

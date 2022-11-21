@@ -6,6 +6,14 @@ public class Hospital {
     private List <Paciente> pacientes;
     private List <Medico> medicos;
 
+    public List<Paciente> getPacientes() {
+        return pacientes;
+    }
+
+    public List<Medico> getMedicos() {
+        return medicos;
+    }
+
     public Hospital() {
         this.pacientes = new ArrayList<>();
         this.medicos = new ArrayList<>();
@@ -22,9 +30,9 @@ public class Hospital {
         }
     }
 
-    public boolean contratarMedicos(String nombre, int edad){
-        if (buscarMedico(nombre, edad) == null) {
-            Medico medico = new Medico(nombre, edad);
+    public boolean contratarMedicos(String nombre, int edad, Especialidad especialidad){
+        if (buscarMedico(nombre, edad, especialidad) == null) {
+            Medico medico = new Medico(nombre, edad, especialidad);
             this.medicos.add(medico);
             return true;
         }
@@ -33,9 +41,9 @@ public class Hospital {
         }
     }
 
-    public boolean despedirMedico(String nombre, int edad){
-        Medico medico = new Medico(nombre, edad);
-        if (Objects.equals(buscarMedico(nombre, edad), medico)) {
+    public boolean despedirMedico(String nombre, int edad, Especialidad especialidad){
+        Medico medico = new Medico(nombre, edad, especialidad);
+        if (Objects.equals(buscarMedico(nombre, edad, especialidad), medico)) {
             this.medicos.remove(medico);
             return true;
         }
@@ -55,7 +63,7 @@ public class Hospital {
         return null;
     }
 
-    public Medico buscarMedico(String nombre, int edad){
+    public Medico buscarMedico(String nombre, int edad, Especialidad especialidad){
         for (Medico medico : this.medicos){
             if (medico.getNombre().equals(nombre) && medico.getEdad() == edad){
                 return medico;

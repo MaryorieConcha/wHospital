@@ -1,33 +1,9 @@
-public class Paciente {
-    private String nombre;
-    private int edad;
-
+public class Paciente extends Persona {
     public Paciente(String nombre, int edad) {
-        this.nombre = nombre;
-        this.edad = edad;
+        super(nombre, edad);
     }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public int getEdad() {
-        return edad;
-    }
-
-    public void setEdad(int edad) {
-        this.edad = edad;
-    }
-
     @Override
     public String toString() {
-        return "Paciente{" +
-                "nombre='" + nombre + '\'' +
-                ", edad=" + edad +
-                '}';
+        return "Paciente{" + "nombre='" + super.getNombre() + '\'' + ", edad=" + super.getEdad() + '}';
     }
 }
