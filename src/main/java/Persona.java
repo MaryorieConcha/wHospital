@@ -1,10 +1,12 @@
 public abstract class Persona {
     private String nombre;
     private int edad;
+    private String rut;
 
-    public Persona(String nombre, int edad) {
+    public Persona(String nombre, int edad, String rut) {
         this.nombre = nombre;
         this.edad = edad;
+        this.rut = rut;
     }
 
     public String getNombre() {
@@ -23,8 +25,18 @@ public abstract class Persona {
         this.edad = edad;
     }
 
+    public String getRut() {
+        return rut;
+    }
+
+    public void setRut(String rut) {
+        this.rut = rut;
+    }
+
     @Override
     public String toString() {
-        return "Persona{" + "nombre='" + nombre + '\'' + ", edad=" + edad + '}';
+        return "Persona{nombre: "+nombre+", edad: "+edad+", rut: "+rut+'}';
     }
+
+    public abstract String getTipo();
 }

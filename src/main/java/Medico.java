@@ -1,8 +1,8 @@
 public class Medico extends Persona {
 	private Especialidad especialidad;
 
-	public Medico(String nombre, int edad, Especialidad especialidad) {
-		super(nombre,edad);
+	public Medico(String nombre, int edad, String rut, Especialidad especialidad) {
+		super(nombre,edad, rut);
 		this.especialidad = especialidad;
 	}
 
@@ -16,7 +16,11 @@ public class Medico extends Persona {
 
 	@Override
 	public String toString() {
-		return "Medico{" + "nombre='" + super.getNombre() + '\'' + ", edad=" + super.getEdad() +
-		", especialidad=" + especialidad + '}';
+		return "Medico{nombre: "+super.getNombre()+", edad: "+super.getEdad()+", rut: "+super.getRut()+
+		", especialidad: " + especialidad + '}';
+	}
+
+	public String getTipo() {
+		return "Medico";
 	}
 }

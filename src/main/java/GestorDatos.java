@@ -14,7 +14,7 @@ public class GestorDatos {
             //Lee cada linea del archivo hasta que la linea sea nula
             while ((textoArchivo = br.readLine()) != null) {
                 String[] data = textoArchivo.split(",");
-                hospital.getPacientes().add(new Paciente(data[0], Integer.parseInt(data[1])));
+                hospital.getPacientes().add(new Paciente(data[0], Integer.parseInt(data[1]), data[2]));
             }
             br.close();
             fr.close();
@@ -34,7 +34,7 @@ public class GestorDatos {
             //Lee cada linea del archivo hasta que la linea sea nula
             while ((textoArchivo = br.readLine()) != null) {
                 String[] data = textoArchivo.split(",");
-                hospital.getMedicos().add(new Medico(data[0], Integer.parseInt(data[1]), Especialidad.valueOf(data[2])));
+                hospital.getMedicos().add(new Medico(data[0], Integer.parseInt(data[1]), data[2], Especialidad.valueOf(data[3])));
             }
             br.close();
             fr.close();

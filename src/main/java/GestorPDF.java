@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.util.Date;
 
 public class GestorPDF {
-    public void generarPDF(Paciente paciente, Medico medico) throws IOException {
+    public void generarPDF(Paciente paciente, Medico medico, String rut) throws IOException {
 //Se crea un nuevo documento
         PDDocument documento = new PDDocument();
 //Al documento se le crea y agrega una nueva página, en este caso en formato A6
@@ -17,7 +17,7 @@ public class GestorPDF {
         String[] lineasPdf= this.obtenerLineasPdf(paciente, medico);
         this.rellenarPDF(documento,pagina,lineasPdf);
 //Se guarda el documento en la ubicación descrita
-        documento.save(this.generarNombrePdf(paciente));
+        documento.save(this.generarNombrePdf(rut));
         documento.close();
     }
 
@@ -48,9 +48,8 @@ public class GestorPDF {
         return lineasPdf;
     }
 
-    private String generarNombrePdf(Paciente paciente){
-        int numeroArchivo= 0;
-        String nombreArchivo="Registro del Paciente/"+"numero"+numeroArchivo+".pdf";
+    private String generarNombrePdf(String rut){
+        String nombreArchivo="Registro del Paciente/Rut"+rut+".pdf";
         return nombreArchivo;
     }
 }

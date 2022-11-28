@@ -19,9 +19,9 @@ public class Hospital {
         this.medicos = new ArrayList<>();
     }
 
-    public boolean registrarPaciente(String nombre, int edad){
-        if (buscarPaciente(nombre, edad) == null) {
-            Paciente paciente = new Paciente(nombre, edad);
+    public boolean registrarPaciente(String nombre, int edad, String rut){
+        if (buscarPaciente(nombre, edad, rut) == null) {
+            Paciente paciente = new Paciente(nombre, edad, rut);
             this.pacientes.add(paciente);
             return true;
         }
@@ -30,9 +30,9 @@ public class Hospital {
         }
     }
 
-    public boolean contratarMedicos(String nombre, int edad, Especialidad especialidad){
-        if (buscarMedico(nombre, edad, especialidad) == null) {
-            Medico medico = new Medico(nombre, edad, especialidad);
+    public boolean contratarMedicos(String nombre, int edad, String rut, Especialidad especialidad){
+        if (buscarMedico(nombre, edad, rut, especialidad) == null) {
+            Medico medico = new Medico(nombre, edad, rut, especialidad);
             this.medicos.add(medico);
             return true;
         }
@@ -41,9 +41,9 @@ public class Hospital {
         }
     }
 
-    public boolean despedirMedico(String nombre, int edad, Especialidad especialidad){
-        Medico medico = new Medico(nombre, edad, especialidad);
-        if (Objects.equals(buscarMedico(nombre, edad, especialidad), medico)) {
+    public boolean despedirMedico(String nombre, int edad, String rut, Especialidad especialidad){
+        Medico medico = new Medico(nombre, edad, rut, especialidad);
+        if (Objects.equals(buscarMedico(nombre, edad, rut, especialidad), medico)) {
             this.medicos.remove(medico);
             return true;
         }
@@ -54,7 +54,7 @@ public class Hospital {
 
 
 
-    public Paciente buscarPaciente(String nombre, int edad){
+    public Paciente buscarPaciente(String nombre, int edad, String rut){
         for (Paciente paciente : this.pacientes){
             if (paciente.getNombre().equals(nombre) && paciente.getEdad() == edad){
                 return paciente;
@@ -63,7 +63,7 @@ public class Hospital {
         return null;
     }
 
-    public Medico buscarMedico(String nombre, int edad, Especialidad especialidad){
+    public Medico buscarMedico(String nombre, int edad, String rut, Especialidad especialidad){
         for (Medico medico : this.medicos){
             if (medico.getNombre().equals(nombre) && medico.getEdad() == edad){
                 return medico;
